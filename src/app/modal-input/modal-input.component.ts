@@ -13,10 +13,20 @@ export class ModalInputComponent implements OnInit {
   private request: SpecificRequest;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+    this.request = new SpecificRequest();
   }
 
   public onSubmit() {
-    this.userService.specificRequestCall(this.request).subscribe(result => alert(result));
+    this.userService.specificRequestCall(this.request).subscribe(result => {
+      if (result !== undefined && result !== null) {
+        console.log(result);
+        if (result.error === undefined || result.error === null) {
+            alert('result: ' + result.result);
+        } else {
+          alert('error: ' + result.error);
+        }
+      }
+    });
   }
 
   ngOnInit() {

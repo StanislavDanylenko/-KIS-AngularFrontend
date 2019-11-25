@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {User} from '../model/user';
 import {SpecificRequest} from '../model/specific-request';
 import {Observable} from 'rxjs';
+import {SpecificResult} from '../model/specific-result';
 
 @Injectable()
 export class UserService {
@@ -34,6 +35,6 @@ export class UserService {
   }
 
   public specificRequestCall(request: SpecificRequest) {
-    return this.http.post( this.usersUrl + '/operation',  request);
+    return this.http.post<SpecificResult>( this.usersUrl + '/operation',  request);
   }
 }
