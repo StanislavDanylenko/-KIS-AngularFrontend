@@ -1,0 +1,19 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="this.isUpdate? onUpdate() : onSave()" #valueForm="ngForm">
+      <div class="form-group">
+        <label for="value">Value</label>
+        <input type="text" [(ngModel)]="this.value"
+               class="form-control"
+               id="value"
+               name="value"
+               placeholder="Enter your value"
+               required #value="ngModel">
+      </div>
+      <div [hidden]="!value.pristine" class="alert alert-danger">Value is required</div>
+      <button type="submit" [disabled]="!valueForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
+
