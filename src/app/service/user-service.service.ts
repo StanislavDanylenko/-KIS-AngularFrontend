@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../model/user';
+import {SpecificRequest} from '../model/specific-request';
 import {Observable} from 'rxjs';
 
 @Injectable()
@@ -32,7 +33,7 @@ export class UserService {
     return this.http.delete<User>( this.usersUrl + '/' + id);
   }
 
-  public funcOrProc(operation: string) {
-    return this.http.delete<User>( this.usersUrl + '/operation'/* + id*/);
+  public specificRequestCall(request: SpecificRequest) {
+    return this.http.post( this.usersUrl + '/operation',  request);
   }
 }

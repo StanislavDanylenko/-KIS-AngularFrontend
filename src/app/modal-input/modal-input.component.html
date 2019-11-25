@@ -1,9 +1,9 @@
 <div class="card my-5">
   <div class="card-body">
-    <form (ngSubmit)="this.isUpdate? onUpdate() : onSave()" #valueForm="ngForm">
+    <form (ngSubmit)="this.onSubmit()" #valueForm="ngForm">
       <div class="form-group">
-        <label for="value">Value</label>
-        <input type="text" [(ngModel)]="this.value"
+        <label for="value">Parameter</label>
+        <input type="text" [(ngModel)]="this.request.parameter"
                class="form-control"
                id="value"
                name="value"
